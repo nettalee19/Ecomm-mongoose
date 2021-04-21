@@ -11,15 +11,19 @@ app.use(bodyParser.json());
 
 app.use('/api/products', productRouter)
 
+app.get('/', (req,res) =>{
+    res.send("test")
+})
+
 //connect to db with mongoose
-mongoose.connect('mongodb://localhost/somecollection', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-}).then(() => {
-    console.log("database connect")
-});
+// mongoose.connect('mongodb://localhost/somecollection', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useFindAndModify: false,
+//     useCreateIndex: true
+// }).then(() => {
+//     console.log("database connect")
+// });
 
 app.listen(process.env.PORT || 5000, () => {
     console.log(`application start at ${process.env.PORT || 5000}`)
